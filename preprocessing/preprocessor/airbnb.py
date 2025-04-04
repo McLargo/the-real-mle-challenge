@@ -1,10 +1,9 @@
 import numpy as np
 import pandas as pd
-from utils import (
-    CSVDataLoader,
-    CSVDataSaver,
-    DataPreprocessor,
-)
+from helpers.loaders import CSVDataLoader
+from helpers.savers import CSVDataSaver
+
+from .interface import DataPreprocessor
 
 
 class AirbnbDataPreprocessor(CSVDataLoader, CSVDataSaver, DataPreprocessor):

@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from utils import CSVDataSaver
+from helpers.savers import CSVDataSaver
 
 
 def test_csv_data_saver(df) -> None:

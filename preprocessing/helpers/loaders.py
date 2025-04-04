@@ -29,7 +29,7 @@ class CSVDataLoader(DataLoader):
     def __init__(self, input_filename: str, *args, **kwargs) -> None:
         """
         Initializes the CSVDataLoader class.
-        Sets the input file path for the raw data.
+        Sets the input file path for the data in CSV file.
         Args:
             input_filename (str): The path to the input file.
             *args: Additional arguments.
