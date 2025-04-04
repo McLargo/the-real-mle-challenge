@@ -1,0 +1,76 @@
+[tool.bandit]
+exclude_dirs = ["tests"]
+
+[tool.black]
+line-length = 80
+target-version = ["py310"]
+include = '.pyi?$'
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.mypy]
+files = "**/*.py"
+exclude = ["tests"]
+python_version = "3.10"
+warn_return_any = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+  "-ra",
+  "-q",
+  "--cov",
+  "--cov-fail-under=100",
+  "--no-cov-on-fail"
+]
+testpaths = [
+  "tests"
+]
+
+[tool.ruff]
+exclude = [
+  ".git",
+  "__pycache__",
+  ".tox",
+  ".mypy_cache",
+  ".venv",
+  "node_modules",
+  "*.ipynb"
+]
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "F",
+  "W",
+  "I",
+  "N",
+  "COM",
+  "T20",
+  "RET",
+  "DTZ",
+  "PL"
+]
+ignore = []
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"
+
+[tool.tomlsort]
+all = true
+in_place = true
+no_comments = true
+no_header_comments = true
+no_footer_comments = true
+no_inline_comments = true
+no_block_comments = true
+no_sort_tables = true
+sort_inline_tables = true
+sort_inline_arrays = true
+spaces_before_inline_comment = 2
+spaces_indent_inline_array = 4
+trailing_comma_inline_array = true
+check = true
+ignore_case = true
