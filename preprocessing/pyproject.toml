@@ -1,0 +1,22 @@
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "preprocessing"
+version = "0.1.0"
+description = ""
+authors = [
+  {name = "Javier Gil", email = "javiergilmont@gmail.com"}
+]
+readme = "../README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "matplotlib (>=3.10.1,<4.0.0)",
+  "numpy (>=2.2.4,<3.0.0)",
+  "pandas (>=2.2.3,<3.0.0)"
+]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+coverage = "^7.8.0"
