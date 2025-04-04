@@ -20,8 +20,9 @@ to manage each of the notebooks, so they can be used in pipelines in production.
 This module is responsible for preprocessing the data. It contains the code to
 read raw data, preprocess and save it in a format that can be used by the model.
 
-I've created few interfaces and implementation to split the code into different parts, so it can be
-reused in the future. The classes are:
+I've created few interfaces and at least one implementation, to split the code
+into different parts. This way, it can be reused in the future and add more
+implementation without major changes in the code. The classes are:
 
 - `DataLoader`: to read the data from the source. It can be used to read the
   data from different sources. Current implementation: `CSVDataLoader`.
@@ -30,10 +31,6 @@ reused in the future. The classes are:
 - `DataSaver`: to save the data in a format that can be used by the model. It
   contains the code to save the data in different formats. Current
   implementation: `CSVDataSaver`.
-
-In the future, I can add more implementation classes to the module to manage the
-data in different ways. For example, I can add a class to manage the data
-in different formats, like JSON, XML, etc.
 
 ### Train module
 
@@ -64,19 +61,6 @@ responsibility and configuration. The modules are:
   format that can be used by the model.
 - `train`: the module responsible for training the model. It contains the code
   to train the model and save it in a format that can be used by the API.
-
-### Configuration
-
-Each module have their own configuration. The configuration is managed by vyper
-in two different ways:
-
-- `.env`: to manage the environment variables. You can copy the `.env_template`
-  file to `.env` in the root path and update the variables you want. This
-  variables have precedence over the variables in the `config.yaml`
-  file and it is used to manage the environment variables of the application.
-- `config.yaml`: to manage the default configuration of the
-  application. You can add/update the variables you want, but always push the
-  changes to the repository.
 
 ### Usage
 
