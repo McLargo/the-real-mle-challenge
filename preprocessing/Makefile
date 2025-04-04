@@ -28,3 +28,7 @@ run: ## Run preprocessing script with arguments: input=<input filename> output=<
 		exit 1; \
 	fi
 	@poetry run python -m main --input=$(input) --output=$(output)
+
+test: ## Run tests
+	@poetry run pytest
+	@echo "All tests passed successfully."

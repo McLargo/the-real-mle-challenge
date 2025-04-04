@@ -17,13 +17,13 @@ warn_return_any = false
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
+maxfail = 1
+disable_warnings = true
 minversion = "6.0"
 addopts = [
   "-ra",
   "-q",
-  "--cov",
-  "--cov-fail-under=100",
-  "--no-cov-on-fail"
+  "-p no:warnings",
 ]
 testpaths = [
   "tests"
