@@ -26,17 +26,20 @@ class CSVDataLoader(DataLoader):
     Class for loading data from a CSV file.
     """
 
-    def __init__(self, input_filename: str, *args, **kwargs) -> None:
+    def __init__(self, input_filename: str, dropna: bool = False, *args, **kwargs) -> None:
         """
         Initializes the CSVDataLoader class.
-        Sets the input file path for the raw data.
+        Sets the input file path for the data in CSV file.
         Args:
             input_filename (str): The path to the input file.
+            dropna (bool): If True, drop rows with NaN values.
+                Defaults to False.
             *args: Additional arguments.
             **kwargs: Additional keyword arguments.
         """
 
         self.input_filename = Path(input_filename)
+        self.dropna = dropna
 
     def load_data(self) -> pd.DataFrame:
         """
@@ -56,4 +59,7 @@ class CSVDataLoader(DataLoader):
         if not self.input_filename.exists():
             raise FileNotFoundError(f"File {self.input_filename} not found")
 
-        return pd.read_csv(self.input_filename, dtype=str)
+        data =  pd.read_csv(self.input_filename, dtype=str)
+        if self.dropna:
+            return data.dropna(axis=0)
+        return data

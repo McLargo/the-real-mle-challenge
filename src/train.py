@@ -1,12 +1,13 @@
 import argparse
 import logging
 
-from preprocessor.airbnb import AirbnbDataPreprocessor
+from trainings.airbnb import AirbnbTraining
 
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
-        description="Ejemplo de script con argumentos.",
+        description="Train Airbnb model",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument("--input", type=str, help="Input file name")
     parser.add_argument("--output", type=str, help="Output file name")
@@ -19,16 +20,16 @@ if __name__ == "__main__":
     )
 
     try:
-        logging.info("Preprocessing Airbnb data")
-        preprocessing = AirbnbDataPreprocessor(
+        logging.info("Train Airbnb model")
+        training = AirbnbTraining(
             input_filename=args.input,
             output_filename=args.output,
         )
-        data_raw = preprocessing.load_data()
-        data_cleaned = preprocessing.clean_data(data_raw)
-        preprocessing.save_data(data_cleaned)
-        logging.info("Data preprocessing completed successfully.")
+        data = training.load_data()
+        model = training.train(data)
+        training.store_model(model)
+        logging.info("Airbnb Training completed successfully.")
     except Exception as e:
         logging.info(f"An error occurred: {e}")
-        logging.info("Data preprocessing failed.")
+        logging.info("Training model failed.")
         raise e

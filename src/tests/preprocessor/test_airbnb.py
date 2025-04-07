@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from pandas import DataFrame
+
 from preprocessor.airbnb import AirbnbDataPreprocessor
 
 
