@@ -41,5 +41,5 @@ train: ## Run train script with arguments: input=<input filename> output=<output
 	@poetry run python -m train --input=$(input) --output=$(output)
 
 test: ## Run tests
-	@poetry run pytest
+	@poetry run python -m pytest
 	@echo "All tests passed successfully."
