@@ -18,7 +18,7 @@ install: ## Install required dependencies
 		poetry install; \
 	fi
 
-run: ## Run preprocessing script with arguments: input=<input filename> output=<output filename>
+preprocess: ## Run preprocessing script with arguments: input=<input filename> output=<output filename>
 	@if [ -z $(input) ]; then \
 		echo "Input file is required. Please provide it as: input=<input filename>"; \
 		exit 1; \
@@ -28,6 +28,17 @@ run: ## Run preprocessing script with arguments: input=<input filename> output=<
 		exit 1; \
 	fi
 	@poetry run python -m preprocessing --input=$(input) --output=$(output)
+
+train: ## Run train script with arguments: input=<input filename> output=<output filename>
+	@if [ -z $(input) ]; then \
+		echo "Input file is required. Please provide it as: input=<input filename>"; \
+		exit 1; \
+	fi
+	@if [ -z $(output) ]; then \
+		echo "Output file is required. Please provide it as: output=<output filename>"; \
+		exit 1; \
+	fi
+	@poetry run python -m train --input=$(input) --output=$(output)
 
 test: ## Run tests
 	@poetry run pytest

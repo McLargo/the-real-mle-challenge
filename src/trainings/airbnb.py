@@ -1,11 +1,11 @@
 from typing import Any
 
 import pandas as pd
-from train_helpers.loaders import CSVDataLoader
-from train_helpers.model_generation import PickleModelGeneration
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
+from helpers.loaders import CSVDataLoader
+from helpers.model_generation import PickleModelGeneration
 from trainings.interface import Training
 
 

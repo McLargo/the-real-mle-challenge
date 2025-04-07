@@ -14,7 +14,6 @@ class Training(ABC):
         """
         Trains the model.
         Other classes should implement this method.
-
         Args:
             data (pd.DataFrame): The data to be used for training.
         """

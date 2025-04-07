@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
+
 from helpers.loaders import CSVDataLoader
 from helpers.savers import CSVDataSaver
-
-from .interface import DataPreprocessor
+from preprocessor.interface import DataPreprocessor
 
 
 class AirbnbDataPreprocessor(CSVDataLoader, CSVDataSaver, DataPreprocessor):

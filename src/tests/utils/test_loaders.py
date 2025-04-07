@@ -1,8 +1,9 @@
 from pathlib import Path
 
 import pytest
-from helpers.loaders import CSVDataLoader
 from pandas import DataFrame
+
+from helpers.loaders import CSVDataLoader
 
 
 def test_csv_data_loader() -> None:
