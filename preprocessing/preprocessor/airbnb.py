@@ -73,7 +73,7 @@ class AirbnbDataPreprocessor(CSVDataLoader, CSVDataSaver, DataPreprocessor):
         return self.data_cleaned
 
     def preprocess_bathrooms_column(self):
-        """ "
+        """
         Preprocesses the bathrooms column by extracting
         the number of bathrooms from the text and removing the original column.
         """
@@ -84,7 +84,7 @@ class AirbnbDataPreprocessor(CSVDataLoader, CSVDataSaver, DataPreprocessor):
 
     @staticmethod
     def num_bathroom_from_text(text):
-        """ "
+        """
         Extracts the number of bathrooms from the text."
         """
         try:
@@ -106,7 +106,7 @@ class AirbnbDataPreprocessor(CSVDataLoader, CSVDataSaver, DataPreprocessor):
         self.data_cleaned = self.data_cleaned.dropna(axis=0)
 
     def preprocess_price_column(self):
-        """ "
+        """
         Preprocesses the price column by removing converting it to an integer.
         Also, removes rows with price under certain price.
         """
@@ -121,7 +121,7 @@ class AirbnbDataPreprocessor(CSVDataLoader, CSVDataSaver, DataPreprocessor):
             ]
 
     def preprocess_amenities_column(self):
-        """ "
+        """
         "Preprocesses the amenities column by
         extracting the amenities and creating binary columns for each amenity."
         """
@@ -169,7 +169,7 @@ class AirbnbDataPreprocessor(CSVDataLoader, CSVDataSaver, DataPreprocessor):
         self.data_cleaned.drop("amenities", axis=1, inplace=True)
 
     def preprocess_category_column(self):
-        """ "
+        """
         Preprocesses the category column by binning the price into categories.
         """
         self.data_cleaned["category"] = pd.cut(
