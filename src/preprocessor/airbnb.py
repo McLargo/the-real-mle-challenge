@@ -102,7 +102,6 @@ class AirbnbDataPreprocessor(CSVDataLoader, CSVDataSaver, DataPreprocessor):
             inplace=True,
         )
 
-        # Q -? Remove rows with missing values. Could be common?
         self.data_cleaned = self.data_cleaned.dropna(axis=0)
 
     def preprocess_price_column(self):

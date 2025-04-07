@@ -22,7 +22,7 @@ class AirbnbTraining(CSVDataLoader, PickleModelGeneration, Training):
             input_filename (str): The name of the input CSV file.
             output_filename (str): The name of the output pickle file.
         """
-        CSVDataLoader.__init__(self, input_filename)
+        CSVDataLoader.__init__(self, input_filename, dropna=True)
         PickleModelGeneration.__init__(self, output_filename)
 
         self.room_type = {
@@ -49,8 +49,7 @@ class AirbnbTraining(CSVDataLoader, PickleModelGeneration, Training):
         self.classifier = None
 
     def train(self, data: pd.DataFrame) -> Any:
-        # Q -> dropna in common place?
-        self.data = data.dropna(axis=0)
+        self.data = data
 
         self.map_room_type()
         self.map_neighbourhood()
