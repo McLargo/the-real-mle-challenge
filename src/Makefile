@@ -40,6 +40,9 @@ train: ## Run train script with arguments: input=<input filename> output=<output
 	fi
 	@poetry run python -m train --input=$(input) --output=$(output)
 
+api: ## Run API server
+	@poetry run uvicorn server:api --reload
+
 test: ## Run tests
 	@poetry run python -m pytest
 	@echo "All tests passed successfully."
