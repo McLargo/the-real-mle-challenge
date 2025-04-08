@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from sklearn.ensemble import RandomForestClassifier
 
 from trainings.airbnb import AirbnbTraining
