@@ -1,6 +1,7 @@
 from enum import Enum
 
 
+# TODO: reuse this enums in preprocessor and training modules
 class PriceCategoryEnum(Enum):
     LOW = 0
     MID = 1

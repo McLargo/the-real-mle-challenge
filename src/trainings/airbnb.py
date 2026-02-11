@@ -25,6 +25,7 @@ class AirbnbTraining(CSVDataLoader, PickleModelGeneration, Training):
         CSVDataLoader.__init__(self, input_filename, dropna=True)
         PickleModelGeneration.__init__(self, output_filename)
 
+        # TODO: Custom attributes generated from common
         self.room_type = {
             "Shared room": 1,
             "Private room": 2,

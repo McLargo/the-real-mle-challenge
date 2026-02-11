@@ -38,6 +38,7 @@ class AirbnbDataPreprocessor(CSVDataLoader, CSVDataSaver, DataPreprocessor):
             "amenities",
             "price",
         ]
+        # TODO: this should be in common place
         self.remove_price_under = 10
         self.price_bins = [10, 90, 180, 400, np.inf]
         self.category_labels = [0, 1, 2, 3]
@@ -96,6 +97,11 @@ class AirbnbDataPreprocessor(CSVDataLoader, CSVDataSaver, DataPreprocessor):
             return np.nan
 
     def preprocess_data_cleaned(self):
+        """
+        Preprocesses the data by removing unnecessary columns,
+        renaming columns, and dropping rows with missing values.
+        """
+        # TODO: validate columns are present
         self.data_cleaned = self.data_raw[self.keep_columns].copy()
         self.data_cleaned.rename(
             columns={"neighbourhood_group_cleansed": "neighbourhood"},
